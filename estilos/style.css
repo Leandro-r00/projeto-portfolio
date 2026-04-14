@@ -32,12 +32,12 @@ body {
 }
 
 header {
-    background-color: var(--destaque);
-    color: var(--texto);
-    padding: 10px;
     display: flex;
     justify-content: flex-end;
     align-content: center;
+    background-color: var(--destaque);
+    color: var(--texto);
+    padding: 10px;
 }
 
 nav#menu ul{
@@ -71,7 +71,6 @@ section#ficha {
     background-color: var(--fundo-card);
     padding: 20px;
     border-radius: 8px;
-
     grid-column: 2;
 }
 
@@ -81,11 +80,11 @@ section#ficha img.foto {
     object-fit: cover;
     overflow: hidden;
     border-radius: 50%;
+    margin-bottom: 15px;
     border: 5px solid var(--fundo-card);
     outline: 5px solid var(--destaque);
     display: block;
-    margin: auto;
-    margin-bottom: 15px;
+    margin: auto; 
 }
 
 section#ficha h1 {
@@ -101,7 +100,7 @@ div#social {
     justify-content: center;
     align-items: center;
     font-size: 1.6em;
-    gap: 1em;
+    gap: 15px;
     margin-top: 15px;
 }
 
@@ -157,7 +156,7 @@ article h2 {
   justify-content: space-between;
   align-items: center;
 }
-/*Sóa para diferenciar as cores dos ícones*/
+/*Só para diferenciar as cores dos ícones*/
 #skill-container .info i {
   color: var(--icone-skill);
 }
@@ -191,17 +190,17 @@ article h2 {
   gap: 20px;
 }
 
-#formacao-container .curso {
+#formacao-container .curso {/*rever aós termino do curso falta transition*/
   background-color: var(--fundo-principal);
   border-radius: 8px;
   border-left: 5px solid var(--destaque-inverso);
-  padding: 10px;
+  padding: 15px;
 }
 
 #formacao-container .curso:hover {
   border-left-width: 15px;
   border-color: var(--destaque);
-  transition: border-width 0.5s, border-color 0.5s;
+  transition: border-width 0.5s, border-color 0.5s; /*rever após termino do curso - transition*/
   cursor: pointer;
 }
 
@@ -216,8 +215,55 @@ article h2 {
   font-size: 1.1em;
 }
 
+#projeto-container {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 20px;
+}
+
+#projeto-container .projeto {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: var(--fundo-principal);
+  padding: 10px;
+  border-radius: 8px;
+  border-left: 5px solid var(--destaque-inverso); /*rever após termino do curso falta transition*/
+  transition: border-color 0.5s, border-width 0.5s;
+}
+
+#projeto-container .projeto:hover {
+  border-left-width: 15px;
+  border-color: var(--destaque);
+  transition: border-width 0.5s, border-color 0.5s; /*rever após termino do curso - transition*/
+  cursor: pointer;
+}
+
+#projeto-container .foto {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
 @media screen and (min-width: 768px) {
     #skill-container {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    #projeto-container .projeto {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
+    #projeto-container .projeto-info {
+        max-width: 80%;
+    }
+
+    #projeto-container .foto {
+        aspect-ratio: 1/1;
+        max-width: 20%;
+        max-height: 200px;
     }
 }
